@@ -56,7 +56,7 @@ const restaurantJsonLd = {
   servesCuisine: ["Hamburguesas gourmet", "Smash burgers", "Cocina española"],
   priceRange: "€€",
   image: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=1200&q=80",
-  url: "https://laburguesita.es",
+  url: "https://ld1878.github.io/laburguesita/",
   sameAs: ["https://www.instagram.com/laburguesitamalaga/"],
   address: [
     {

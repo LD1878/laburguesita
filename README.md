@@ -29,19 +29,37 @@ Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 | `npm run start` | Servidor de producción |
 | `npm run lint` | ESLint |
 
-## Despliegue en Vercel
+## GitHub Pages (producción)
+
+El sitio se despliega automáticamente en cada push a `main` vía GitHub Actions.
+
+**URL:** https://ld1878.github.io/laburguesita/
+
+### Configuración en GitHub (solo una vez)
+
+1. Ve a **Settings → Pages**
+2. En **Build and deployment → Source**, selecciona **GitHub Actions**
+3. Tras el primer push, el workflow `Deploy to GitHub Pages` publicará el sitio
+
+### Build local (igual que en CI)
+
+```bash
+npm run build:pages
+```
+
+El sitio estático se genera en la carpeta `out/`. Para previsualizar:
+
+```bash
+npx serve out
+```
+
+Abre http://localhost:3000/laburguesita/
+
+## Despliegue en Vercel (alternativa)
 
 1. Importa el repositorio en [vercel.com](https://vercel.com)
-2. Framework Preset: **Next.js** (detectado automáticamente)
-3. Build Command: `npm run build`
-4. Output Directory: `.next` (por defecto)
-5. Deploy
-
-No se requieren variables de entorno para el despliegue básico.
-
-### Dominio personalizado
-
-En Vercel → Project Settings → Domains, añade tu dominio (ej. `laburguesita.es`).
+2. Build Command: `npm run build` (sin `GITHUB_PAGES`)
+3. Deploy
 
 ## Estructura
 

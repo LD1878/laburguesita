@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import { useState } from "react";
+import { withBasePath } from "@/lib/base-path";
 import { BurgerBuilder } from "@/components/BurgerBuilder";
 import { MenuCard } from "@/components/MenuCard";
 import { SectionReveal } from "@/components/ui/SectionReveal";
@@ -41,7 +42,7 @@ export function Menu() {
               </h2>
             </div>
             <a
-              href="/menu-print"
+              href={withBasePath("/menu-print")}
               target="_blank"
               className="inline-flex items-center gap-2 border border-gray-800 px-5 py-3 text-[10px] uppercase tracking-[0.2em] text-gray-400 transition-all duration-500 hover:border-white-pure hover:text-white-pure"
             >
