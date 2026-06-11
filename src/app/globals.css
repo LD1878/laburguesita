@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --color-black-rich: #0a0a0a;
+  --color-black-soft: #111111;
+  --color-gray-900: #1f1f1f;
+  --color-gray-800: #2a2a2a;
+  --color-gray-600: #4a4a4a;
+  --color-gray-500: #666666;
+  --color-gray-400: #999999;
+  --color-gray-200: #e5e5e5;
+  --color-white-soft: #fafafa;
+  --color-white-pure: #ffffff;
+
+  --font-serif: var(--font-playfair), "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-black-rich);
+  color: var(--color-white-soft);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-white-pure);
+  color: var(--color-black-rich);
+}
+
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.grain-overlay-light {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.bw-image {
+  filter: grayscale(100%) contrast(1.05);
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.field-input {
+  width: 100%;
+  border: 1px solid #2a2a2a;
+  background: #0a0a0a;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  color: #fafafa;
+  transition: border-color 0.5s;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: #fafafa;
+}
+
+.field-input::placeholder {
+  color: #666666;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}
